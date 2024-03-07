@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DisplayComponent from "./src/DisplyComponent";
 
 const api = {
-  Key: "3862ecd80f473013250be9b912772918",
+  Key: { apikey},
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
@@ -29,7 +29,7 @@ const App = () => {
 
             // Api call to get weather data
             fetch(
-              `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=3862ecd80f473013250be9b912772918`
+              `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}`
             )
               .then((res) => res.json())
               .then((data) => {
@@ -99,7 +99,7 @@ const App = () => {
     // data.coord.lon ? setLongitude(data.coord.lon) : "";
     const fetchLocation = async () => {
       const region = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=3862ecd80f473013250be9b912772918`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apikey}`
       );
       const result = await region.json();
       console.log(result);
